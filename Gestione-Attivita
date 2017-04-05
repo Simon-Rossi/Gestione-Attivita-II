@@ -1,7 +1,3 @@
-#!/bin/bash
-pause(){
-	read -p "Premi Invio per continuare..."
-}
 menu(){
 echo -e '\0033\0143'
 
@@ -19,7 +15,7 @@ Funzioni Gestione Attivita':
 8  -  Ricerca di un processo
 9  -  Processi real-time (Ctrl+C per terminare)
 10 -  Dispositivi USB collegati
-
+11 -  Informazioni sul computer
 Inserisci il numero della funzione da avviare: " num
 
 case $num in 
@@ -65,9 +61,18 @@ Procedere all'installazione? Y/N " s
 	10) lsusb 
 	    pause
 	    menu ;;
+	11) read -p "
+Questo e' il sottomenu' per le informazioni inerenti al computer:
+1  -  CPU
+
+Scegli di quale componente vuoi sapere di piu':" sceltainfo
+	    case $sceltainfo in
+	1) lscpu
+	   pause
+	   menu ;;
+	   esac
 esac
 
 }
 
 menu
-
