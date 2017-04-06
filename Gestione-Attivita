@@ -1,3 +1,4 @@
+#!/bin/bash
 menu(){
 echo -e '\0033\0143'
 
