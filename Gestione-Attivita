@@ -1,4 +1,8 @@
 #!/bin/bash
+pause(){
+	read -p "Premi invio per ritornare al menu di scelta..."
+}
+
 menu(){
 echo -e '\0033\0143'
 
@@ -16,7 +20,8 @@ Funzioni Gestione Attivita':
 8  -  Ricerca di un processo
 9  -  Processi real-time (Ctrl+C per terminare)
 10 -  Dispositivi USB collegati
-11 -  Informazioni sul computer
+11 -  Fermare un processo
+12 -  Informazioni sul computer
 Inserisci il numero della funzione da avviare: " num
 
 case $num in 
@@ -62,7 +67,18 @@ Procedere all'installazione? Y/N " s
 	10) lsusb 
 	    pause
 	    menu ;;
-	11) read -p "
+	11) read -p "Inserisci il PID del processo che vuoi terminare: " killproc
+	    kill $killproc 
+	    if [ $? -eq 0 ]
+	    then
+		echo "Il processo e' stato terminato con successo" 
+	    else
+		echo "
+Il progranma ha riscontrato un problema, ricontrolla che il PID sia giusto, puoi anche ricontrollare utilizzando le altre funzioni del programma come: 8 - Ricerca di un processo o 7 - Istanza di tutti i processi."
+	    fi
+	    pause
+	    menu ;;
+	12) read -p "
 Questo e' il sottomenu' per le informazioni inerenti al computer:
 1  -  CPU
 
