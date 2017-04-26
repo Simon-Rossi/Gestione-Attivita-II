@@ -100,7 +100,6 @@ Il progranma ha riscontrato un problema, ricontrolla che il PID sia giusto, puoi
 	   pause
 	   menu ;;
 	   esac
-esac
 
 }
 
